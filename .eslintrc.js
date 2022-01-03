@@ -8,11 +8,12 @@ module.exports = {
     "prettier"
   ],
   rules: {
-    // override/add rules settings here, such as:
+  // override/add rules settings here, such as:
     "no-unused-vars": "off",
     "vue/no-unused-vars": "off",
     "vue/require-default-prop": "off",
     "semi": "error",
-    "comma-dangle": "error"
+    "comma-dangle": "error",
+    "indent": ["error", 2]
   }
 };

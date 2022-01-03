@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ msgModified }}</h1>
   <h1>{{computed1}}</h1>
   <h1>{{data}}</h1>
   <h1>{{count}}</h1>
@@ -11,10 +11,7 @@
   </p>
 </template>
 <script setup>
-  import { onMounted, onUnmounted, ref, reactive, computed } from 'vue';
-
-try {
-
+import { onMounted, onUnmounted, ref, reactive, computed, onErrorCaptured } from 'vue';
 // defineProps({
 //   msg: String
 // });
@@ -29,11 +26,10 @@ const computed1 = computed(() => {
   return msgModified.value + count.value;
 });
 
-onMounted();
-onUnmounted();
-} catch (e) {
-  console.log("Error: ", e);
-}
+onErrorCaptured((e) => { console.log("Error: ", e); return true;});
+// onMounted();
+// onUnmounted();
+
 
 </script>
 <style scoped>
