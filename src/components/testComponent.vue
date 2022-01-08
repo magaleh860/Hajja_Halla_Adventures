@@ -1,17 +1,14 @@
 <template>
-<div class="welcome-container">
-  <h1 class="title"><span style="color: red;">Welcome</span> <span style="color: green;">to</span> <span style="color: orange;">Halla</span> <span style="color: blue;">Adventures!</span></h1>
-  <img src="../assets/grandma.gif"/>
-  <!-- <h1>{{computed1}}</h1>
+  <h1>{{ msgModified }}</h1>
+  <h1>{{computed1}}</h1>
   <h1>{{data}}</h1>
-  <h1>{{count}}</h1> -->
+  <h1>{{count}}</h1>
 
-  <button type="button" @click="$router.push('/mainmenu')">Start</button>
-  <!-- <p>
+  <button type="button" @click="count++">count is: {{ count }}</button>
+  <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p> -->
-</div>
+  </p>
 </template>
 <script setup>
 import { onMounted, onUnmounted, ref, reactive, computed, onErrorCaptured } from 'vue';
@@ -38,12 +35,5 @@ onErrorCaptured((e) => { console.log("Error: ", e); return true;});
 <style scoped>
 a {
   color: #42b983;
-}
-
-.welcome-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>
