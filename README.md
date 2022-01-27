@@ -1,4 +1,5 @@
 # Hajja_Halla_Adventures
+
 ## A fun adventures of a grandma living the life
 
 # Using Vue 3 + Vuex + Vue Router + Vite

@@ -1,11 +1,15 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
 import router from "./router";
-import  Store  from "./store/store";
-import App from './App.vue'
-  
+import Store from "./store/store";
+import App from "./App.vue";
+import HhTileContainer from "./components/HhTileContainer.vue";
+import HhTile from "./components/HhTile.vue";
+import HhCharacter from "./components/HhCharacter.vue";
 const app = createApp(App);
 app.use(router);
 app.use(Store);
-
-app.mount('#app');
-
+app.component("HhTileContainer", HhTileContainer);
+app.component("HhTile", HhTile);
+app.component("HhCharacter", HhCharacter);
+app.mount("#app");
+// console.log("process: ", process.env);
