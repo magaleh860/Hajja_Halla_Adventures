@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-container">
+  <div class="flex flex-col justify-center items-center">
     <h1 class="title">
       <span style="color: red">Welcome</span>
       <span style="color: green">to</span>
@@ -11,7 +11,9 @@
   <h1>{{data}}</h1>
   <h1>{{count}}</h1> -->
 
-    <button type="button" @click="$router.push('/mainmenu')">Start</button>
+    <hh-button type="button" @click="$router.push('/mainmenu')"
+      >Start</hh-button
+    >
     <!-- <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -25,7 +27,7 @@ import {
   ref,
   reactive,
   computed,
-  onErrorCaptured,
+  onErrorCaptured
 } from "vue";
 // defineProps({
 //   msg: String
@@ -34,7 +36,7 @@ const msgModified = ref(":::");
 const count = ref(0);
 
 const data = reactive({
-  title: "HelloWorld",
+  title: "HelloWorld"
 });
 
 const computed1 = computed(() => {
@@ -48,15 +50,3 @@ onErrorCaptured((e) => {
 // onMounted();
 // onUnmounted();
 </script>
-<style scoped>
-a {
-  color: #42b983;
-}
-
-.welcome-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-</style>

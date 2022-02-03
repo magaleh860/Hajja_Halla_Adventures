@@ -1,7 +1,9 @@
 <template>
-  <div class="tile" :style="{ 'background-position': spriteCoordinates }"></div>
+  <div
+    class="bg-[url(/src/assets/tiles-grass.png)] bg-no-repeat w-[32px] h-[32px] overflow-hidden"
+    :style="{ 'background-position': spriteCoordinates }"
+  ></div>
 </template>
-
 <script setup>
 import { defineProps } from "vue";
 const props = defineProps({
@@ -27,15 +29,3 @@ let spriteCoordinates = getSprite(props.type);
 
 // console.log("type: ", props.type);
 </script>
-
-<style scoped>
-.tile {
-  background-image: url(/src/assets/tiles-grass.png);
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-  /* position: absolute;
-  top: 130px; */
-}
-</style>

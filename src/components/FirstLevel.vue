@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
+  <div class="w-screen h-screen flex justify-center items-center bg-black">
     <hh-tile-container>
+      <HhCharacter :map="map" :tiles-accessability="tilesAccessability" />
       <template v-for="row in map"
         ><HhTile v-for="tile in row" :key="tile" :type="tile"
       /></template>
     </hh-tile-container>
   </div>
 </template>
-
 <script setup>
 let tilesAccessability = {
   grass: true,
@@ -16,24 +16,47 @@ let tilesAccessability = {
   water: false,
   hole: false
 };
+
 let map = [
   [
-    "grass",
-    "trees",
-    "grass",
-    "trees",
-    "double-trees",
     "water",
     "water",
-    "grass",
-    "grass",
-    "hole",
-    "trees",
-    "trees",
-    "trees",
-    "trees",
     "water",
     "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "grass",
+    "grass",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water",
+    "water"
+  ],
+  [
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
     "grass",
     "grass",
     "grass",
@@ -415,43 +438,21 @@ let map = [
   ],
   [
     "grass",
-    "trees",
-    "grass",
-    "trees",
-    "double-trees",
-    "water",
-    "water",
-    "grass",
-    "grass",
-    "hole",
-    "trees",
-    "trees",
-    "trees",
-    "trees",
-    "water",
-    "water",
     "grass",
     "grass",
     "grass",
-    "grass"
-  ],
-  [
-    "grass",
-    "trees",
-    "grass",
-    "trees",
-    "double-trees",
-    "water",
-    "water",
     "grass",
     "grass",
-    "hole",
-    "trees",
-    "trees",
-    "trees",
-    "trees",
-    "water",
-    "water",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
+    "grass",
     "grass",
     "grass",
     "grass",
@@ -459,14 +460,3 @@ let map = [
   ]
 ];
 </script>
-
-<style scoped>
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-}
-</style>

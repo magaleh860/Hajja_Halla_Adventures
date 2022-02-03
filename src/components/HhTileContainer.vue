@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tiles-container"
+    class="tiles-container relative grid"
     :style="{
       width: '640px',
       height: '640px'
@@ -16,12 +16,6 @@
 </script>
 <style scoped>
 .tiles-container {
-  /* width: 640px;
-  height: 640px; */
-  /* display: flex;
-  flex-flow: wrap; */
-  position: relative;
-  display: grid;
   grid-template-rows:
     32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px
     32px 32px 32px 32px 32px 32px 32px;

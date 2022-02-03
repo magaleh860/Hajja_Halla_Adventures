@@ -1,30 +1,12 @@
 <template>
-  <div class="main-menu-container">
+  <div class="flex flex-col justify-center items-center bg-cyan-400">
     <h1>Main Menu</h1>
-    <button class="main-menu-buttons" @click="$router.push('/firstlevel')">
-      Campain
-    </button>
-    <button class="main-menu-buttons">Load game</button>
-    <button class="main-menu-buttons">Challenges</button>
-    <button class="main-menu-buttons">Options</button>
-    <button class="main-menu-buttons" @click="$router.push('/')">Back</button>
+    <HhButton @click="$router.push('/firstlevel')"> Campain </HhButton>
+    <HhButton>Load game</HhButton>
+    <HhButton>Challenges</HhButton>
+    <HhButton>Options</HhButton>
+    <HhButton @click="$router.push('/')">Back</HhButton>
   </div>
 </template>
 
 <script setup></script>
-<style scoped>
-.main-menu-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgb(0, 140, 255);
-}
-
-.main-menu-buttons {
-  background: cyan;
-  width: 200px;
-  border-radius: 5px;
-  margin: 20px;
-}
-</style>
