@@ -1,7 +1,12 @@
 <template>
   <div class="w-screen h-screen flex justify-center items-center bg-black">
     <hh-tile-container>
-      <HhCharacter :map="map" :tiles-accessability="tilesAccessability" />
+      <HhCharacter
+        :map="map"
+        :tiles-accessability="tilesAccessability"
+        character-tile="/src/assets/gypsy-001.png"
+        :auto-move="false"
+      />
       <template v-for="row in map"
         ><HhTile v-for="tile in row" :key="tile" :type="tile"
       /></template>
