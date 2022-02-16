@@ -1,7 +1,8 @@
 <template>
   <div
     :class="[
-      `bg-[url(${props.characterTile})]`,
+      //`bg-[url(${props.characterTile})]`,
+      'bg-[url(/src/assets/gypsy-001.png)]',
       'w-[24px]',
       'h-[32px]',
       'absolute',
@@ -10,7 +11,10 @@
     :style="{
       top: currentCoordinates[0] * 32 + 'px',
       left: currentCoordinates[1] * 32 + 'px',
-      'background-position': spriteCoordinates
+      'background-position': spriteCoordinates,
+      'transition-property': 'top, left',
+      'transition-timing-function': 'linear',
+      'transition-duration': '500ms'
     }"
   ></div>
 </template>
@@ -25,21 +29,37 @@ const props = defineProps({
   autoMove: { type: Boolean, default: false }
 });
 
-let classObj = {};
 let currentCoordinates = ref([19, 10]);
 let currentDirection = ref("forward");
-
+let movingSpriteIndex = ref(1);
+let movingInProgess = ref(false);
 let spriteCoordinates = computed(() => {
-  console.log("Current direction: ", currentDirection.value);
-  switch (currentDirection.value) {
-    case "forward":
+  let spriteType = currentDirection.value + "_" + movingSpriteIndex.value;
+  switch (spriteType) {
+    case "forward_1":
       return "0px 0px";
-    case "backward":
+    case "forward_2":
+      return "-24px 0px";
+    case "forward_3":
+      return "-48px 0px";
+    case "backward_1":
       return "0px -64px";
-    case "left":
+    case "backward_2":
+      return "-24px -64px";
+    case "backward_3":
+      return "-48px -64px";
+    case "left_1":
       return "0px -96px";
-    case "right":
+    case "left_2":
+      return "-24px -96px";
+    case "left_3":
+      return "-48px -96px";
+    case "right_1":
       return "0px -32px";
+    case "right_2":
+      return "-24px -32px";
+    case "right_3":
+      return "-48px -32px";
     default:
       return "";
   }
@@ -70,6 +90,8 @@ let isValidMove = (direction, currentCoordinates, map, tilesAccessability) => {
 
 let move = (direction, currentCoordinates) => {
   console.log("Inside move: ", direction, currentCoordinates);
+
+  if (movingInProgess.value) return;
   switch (direction) {
     case "forward":
       if (
@@ -82,6 +104,22 @@ let move = (direction, currentCoordinates) => {
       ) {
         currentDirection.value = direction;
         currentCoordinates[0] -= 1;
+        movingInProgess.value = true;
+        setTimeout(() => {
+          movingInProgess.value = false;
+        }, 300);
+        setTimeout(() => {
+          movingSpriteIndex.value = 2;
+          console.log(movingSpriteIndex.value);
+        }, 100);
+        setTimeout(() => {
+          movingSpriteIndex.value = 3;
+          console.log(movingSpriteIndex.value);
+        }, 200);
+        setTimeout(() => {
+          movingSpriteIndex.value = 1;
+          console.log(movingSpriteIndex.value);
+        }, 300);
       }
       break;
     case "backward":
@@ -95,6 +133,22 @@ let move = (direction, currentCoordinates) => {
       ) {
         currentDirection.value = direction;
         currentCoordinates[0] += 1;
+        movingInProgess.value = true;
+        setTimeout(() => {
+          movingInProgess.value = false;
+        }, 300);
+        setTimeout(() => {
+          movingSpriteIndex.value = 2;
+          console.log(movingSpriteIndex.value);
+        }, 100);
+        setTimeout(() => {
+          movingSpriteIndex.value = 3;
+          console.log(movingSpriteIndex.value);
+        }, 200);
+        setTimeout(() => {
+          movingSpriteIndex.value = 1;
+          console.log(movingSpriteIndex.value);
+        }, 300);
       }
       break;
     case "left":
@@ -108,6 +162,22 @@ let move = (direction, currentCoordinates) => {
       ) {
         currentDirection.value = direction;
         currentCoordinates[1] -= 1;
+        movingInProgess.value = true;
+        setTimeout(() => {
+          movingInProgess.value = false;
+        }, 300);
+        setTimeout(() => {
+          movingSpriteIndex.value = 2;
+          console.log(movingSpriteIndex.value);
+        }, 100);
+        setTimeout(() => {
+          movingSpriteIndex.value = 3;
+          console.log(movingSpriteIndex.value);
+        }, 200);
+        setTimeout(() => {
+          movingSpriteIndex.value = 1;
+          console.log(movingSpriteIndex.value);
+        }, 300);
       }
 
       break;
@@ -122,6 +192,22 @@ let move = (direction, currentCoordinates) => {
       ) {
         currentDirection.value = direction;
         currentCoordinates[1] += 1;
+        movingInProgess.value = true;
+        setTimeout(() => {
+          movingInProgess.value = false;
+        }, 300);
+        setTimeout(() => {
+          movingSpriteIndex.value = 2;
+          console.log(movingSpriteIndex.value);
+        }, 100);
+        setTimeout(() => {
+          movingSpriteIndex.value = 3;
+          console.log(movingSpriteIndex.value);
+        }, 200);
+        setTimeout(() => {
+          movingSpriteIndex.value = 1;
+          console.log(movingSpriteIndex.value);
+        }, 300);
       }
       break;
     default:
