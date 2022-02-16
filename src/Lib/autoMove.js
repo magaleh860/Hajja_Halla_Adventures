@@ -6,10 +6,21 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 };
 
-const randomMove = (coordinates) => {
-  let axis = getRandomIntInclusive(0, 1);
-  let step = getRandomIntInclusive(-1, 1);
-  coordinates[axis] += step;
+const createRandomMove = () => {
+  let direction = getRandomIntInclusive(1, 4);
+  console.log("Direction index: ", direction);
+  switch (direction) {
+    case 1:
+      return "forward";
+    case 2:
+      return "backward";
+    case 3:
+      return "left";
+    case 4:
+      return "right";
+    default:
+      return "";
+  }
 };
 
-export { randomMove };
+export { createRandomMove };

@@ -20,7 +20,7 @@
 </template>
 <script setup>
 import { defineProps, ref, computed } from "vue";
-import { randomMove } from "../Lib/autoMove";
+import { createRandomMove } from "../Lib/autoMove";
 
 const props = defineProps({
   map: { type: Array, required: true },
@@ -218,7 +218,9 @@ let move = (direction, currentCoordinates) => {
 // adds random movement
 if (props.autoMove) {
   setInterval(() => {
-    randomMove(currentCoordinates.value);
+    let moveDirection = createRandomMove();
+    console.log(moveDirection);
+    move(moveDirection, currentCoordinates.value);
   }, 1000);
 }
 
